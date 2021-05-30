@@ -26,13 +26,12 @@ const Blogs = () => {
   }, [searchInput]);
 
   return (
-    <div className="" data-testid="id">
-      <h1 className="blog__page__header">News</h1>
-      {loading ? <h1 className="loading text-center">Loading...</h1> : ""}
-      <div className="row mx-auto p-5">
+    <div className="blog__page" data-testid="id">
+      <h1 className="blog__page__header">Blogs</h1>
+      {loading ? <h1 className="loading">Loading...</h1> : ""}
+      <div className="blogs">
         {blogs?.articles?.map((blog) => (
-          <div className="col mb-5">
-            <a className="blog" target="_blank" href={blog.url} rel="noreferrer">
+          <a className="blog" target="_blank" href={blog.url} rel="noreferrer">
             <img src={blog.image} alt="" />
             <div>
               <h3 className="sourceName">
@@ -43,12 +42,11 @@ const Blogs = () => {
               <p>{blog.description}</p>
             </div>
           </a>
-          </div>
         ))}
 
         {blogs?.totalArticles === 0 && (
           <h1 className="no__blogs">
-            No blogs available. Search something else to read blogs on the
+            No blogs available 😞. Search something else to read blogs on the
             greatest platform.
           </h1>
         )}
